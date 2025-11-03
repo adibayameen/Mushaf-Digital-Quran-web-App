@@ -8,73 +8,22 @@ st.set_page_config(
 )
 
 st.markdown("""
-    <style>
-    /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Poppins:wght@400;600&display=swap');
+<style>
+/* Google Fonts, background, sidebar, etc. */
 
-    /* App background */
-    [data-testid="stAppViewContainer"] {
-        background: linear-gradient(to bottom right, #eef2f3, #dfe9f3);
-    }
+/* Finger cursor for selectboxes */
+[data-baseweb="select"] > div {
+    cursor: pointer !important;
+}
 
-    /* Sidebar background */
-    [data-testid="stSidebar"] {
-        background-color: #f8f9fa;
-    }
+/* Finger cursor for buttons */
+.stButton>button {
+    cursor: pointer !important;
+}
 
-    /* General text (English) */
-    * {
-        font-family: 'Poppins', sans-serif;
-        color: #333333;
-    }
-
-    /* Title */
-    h1 {
-        font-family: 'Poppins', sans-serif;
-        color: #004d40;
-        text-align: center;
-        font-weight: 600;
-    }
-
-    /* Sidebar text */
-    [data-testid="stSidebar"] * {
-        font-family: 'Poppins', sans-serif;
-        color: #222;
-    }
-
-    /* ✅ Add pointer cursor for dropdowns */
-    select, .stSelectbox, [data-baseweb="select"] {
-        cursor: pointer !important;
-    }
-
-    /* ✅ Add pointer for buttons too */
-    button, .stButton>button {
-        cursor: pointer !important;
-    }
-
-    /* Quran Arabic text */
-    .quran-text {
-        font-family: 'Amiri', serif;
-        font-size: 24px;
-        direction: rtl;
-        text-align: right;
-        line-height: 2.3;
-        color: #1b1b1b;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-
-    /* Section separators */
-    hr {
-        border: 0;
-        height: 1px;
-        background: #ccc;
-        margin: 20px 0;
-    }
-    </style>
+/* Arabic & English text styling etc. */
+</style>
 """, unsafe_allow_html=True)
-
-# -------------------- App Logic --------------------
 st.title("🕋 Mushaf Digital Quran")
 st.sidebar.title("📖 Surah Selection")
 
@@ -100,3 +49,4 @@ response_surah_audio = requests.get(
 for ayah in response_surah_audio:
     st.markdown(f'<div class="quran-text">{ayah["text"]}</div>', unsafe_allow_html=True)
     st.audio(ayah["audio"])
+
