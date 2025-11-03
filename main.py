@@ -100,17 +100,3 @@ response_surah_audio = requests.get(
 for ayah in response_surah_audio:
     st.markdown(f'<div class="quran-text">{ayah["text"]}</div>', unsafe_allow_html=True)
     st.audio(ayah["audio"])
-    st.markdown("""
-<style>
-/* Dropdown / selectbox pointer */
-select, .stSelectbox, [data-baseweb="select"] {
-    cursor: pointer !important;
-}
-
-/* Buttons pointer */
-button, .stButton>button {
-    cursor: pointer !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
