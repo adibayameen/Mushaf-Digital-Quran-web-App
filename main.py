@@ -50,8 +50,9 @@ st.markdown("""
 st.title("🕋 Mushaf Digital Quran")
 st.sidebar.title("📖 Surah Selection")
 
-response = requests.get("http://api.alquran.cloud/v1/surah")
+response = requests.get("https://api.alquran.cloud/v1/surah")
 response_Surah = response.json()["data"]
+
 
 Arabic_Surah_Name = [f"{s['number']}. {s['englishName']} {s['name']}" for s in response_Surah]
 Selected_Surah_Name = st.sidebar.selectbox("📜 Choose Surah", Arabic_Surah_Name)
@@ -65,7 +66,7 @@ reciters = [
 reciter = st.sidebar.selectbox("🎧 Choose Reciter", reciters)
 
 response_surah_audio = requests.get(
-    f"http://api.alquran.cloud/v1/surah/{surah_num}/{reciter}"
+    f"https://api.alquran.cloud/v1/surah/{surah_num}/{reciter}"
 ).json()["data"]["ayahs"]
 
 
