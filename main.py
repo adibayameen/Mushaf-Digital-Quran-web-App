@@ -76,9 +76,11 @@ for ayah in response_surah_audio:
     # st.write(ayah["text"])
 
     st.audio(ayah["audio"])
+st.info("Deveolped by Adeeba Yameen Sheikh")
     
     
     
+
 
 
 
