@@ -1,14 +1,15 @@
 import streamlit as st
 import requests
-st.set_page_config(page_title="Mushaf Digital Quran",page_icon="🕋")
+st.set_page_config(page_title="Mushaf Digital Quran", page_icon="🕋")
 
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+    /* Import Arabic Quranic font */
+    @import url('https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap');
 
     /* Main background */
     body, .css-18e3th9, .stApp {
-        font-family: 'Amiri', serif;
+        font-family: 'Scheherazade New', serif;
         background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* soft turquoise to white */
         color: #064420; /* dark green text */
     }
@@ -29,7 +30,7 @@ st.markdown("""
 
     /* App title and headings */
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Amiri', serif;
+        font-family: 'Scheherazade New', serif;
         color: #a67c00; /* golden main headings */
     }
 
@@ -53,10 +54,10 @@ st.sidebar.title("📖 Surah Selection")
 response = requests.get("https://api.alquran.cloud/v1/surah")
 response_Surah = response.json()["data"]
 
-
 Arabic_Surah_Name = [f"{s['number']}. {s['englishName']} {s['name']}" for s in response_Surah]
 Selected_Surah_Name = st.sidebar.selectbox("📜 Choose Surah", Arabic_Surah_Name)
 surah_num = int(Selected_Surah_Name.split(".")[0])
+
 reciters = [
     "ar.abdurrahmaansudais",
     "ar.saoodshuraym",
@@ -69,32 +70,19 @@ response_surah_audio = requests.get(
     f"https://api.alquran.cloud/v1/surah/{surah_num}/{reciter}"
 ).json()["data"]["ayahs"]
 
-
 for ayah in response_surah_audio:
-    st.markdown(f"<p style='font-size:22px;'>{ayah['text']}</p>", unsafe_allow_html=True)
-
-    # st.write(ayah["text"])
-
+    st.markdown(
+        f"""
+        <p style='
+            font-size:24px;
+            font-family:Scheherazade New, serif;
+            direction:rtl;
+            text-align:right;
+            line-height:2;
+        '>{ayah['text']}</p>
+        """,
+        unsafe_allow_html=True
+    )
     st.audio(ayah["audio"])
-st.info("Deveolped by Adeeba Yameen Sheikh")
     
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+st.info("Developed by Adeeba Yameen Sheikh")
