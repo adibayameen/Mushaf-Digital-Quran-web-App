@@ -64,9 +64,8 @@ streamlit run main.py
 4️⃣ Open in Browser
 
 Visit the local URL (usually [http://localhost:8501](http://localhost:8501)) to view your app.
-🎥 Demo Video
 
-[Click to watch](assets/demo.mp4)
+https://github.com/user-attachments/assets/a03985ca-5dc9-4640-a427-df1b554f8da5
 
 
 ---
@@ -76,7 +75,10 @@ Visit the local URL (usually [http://localhost:8501](http://localhost:8501)) to 
 1. Select a **Surah** from the sidebar.
 2. Choose your **Reciter** (Sudais, Shuraim, Maher, or Al-Afasy).
 3. Read the **Arabic text** with Mushaf-style formatting.
-4. Play each **Ayah’s audio** directly within the app.
+4. Play eac
+
+
+h **Ayah’s audio** directly within the app.
 
 ---
 
