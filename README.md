@@ -64,6 +64,10 @@ streamlit run main.py
 4️⃣ Open in Browser
 
 Visit the local URL (usually [http://localhost:8501](http://localhost:8501)) to view your app.
+🎥 Demo Video
+
+[Click to watch](assets/demo.mp4)
+
 
 ---
 
